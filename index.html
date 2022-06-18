@@ -5,7 +5,63 @@
     <title>super-computing-machine</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+
+  <body class="body">
+    <!-- NOTE: THe contents of the password generator are here -->
+    <div class="content" style="">
+      <h3>Password Generator!</h3>
+
+      <h4>
+        <label for="password-length">
+          Password Length:
+          <input
+            type="number"
+            id="password-length"
+            name="password-length"
+            min="8"
+            max="24"
+            placeholder="12"
+          />
+        </label>
+      </h4>
+
+      <h4>
+        <label for="AUppercase"> A-Z </label>
+        <input type="checkbox" name="AUppercase" id="AUppercase" />
+      </h4>
+
+      <h4>
+        <label for="alowercase"> a-z </label>
+        <input type="checkbox" name="alowercase" id="alowercase" />
+      </h4>
+
+      <h4>
+        <label for="09"> 0-9 </label>
+        <input type="checkbox" name="09" id="09" />
+      </h4>
+
+      <h4>
+        <label for="special-symbols"> Special Symbols (!@#$^*&) </label>
+        <input type="checkbox" name="special-symbols" id="special-symbols" />
+      </h4>
+
+      <h4>
+        <label for="special-symbols">
+          Exclude Similar Characters (e.g. i,l,1,L,o,O,0)
+        </label>
+        <input
+          type="checkbox"
+          name="exclude-special-symbols"
+          id="exclude-special-symbols"
+        />
+      </h4>
+
+      <h3>Your Password is:<span id="password-result"></span></h3>
+
+      <button type="button" name="button">Generate!</button>
+      <button type="button" name="button">Copy</button>
+    </div>
+
     <script type="text/javascript" src="script.js"></script>
   </body>
 </html>
