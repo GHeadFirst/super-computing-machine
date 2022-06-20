@@ -1,4 +1,31 @@
 "use strict";
+// querySelector
+
+const passwordLengthInput = document.querySelector("#password-length");
+
+const generateBtn = document.querySelector("#generate-button");
+
+const copyBtn = document.querySelector("#copy-button");
+
+const passwordResult = document.querySelector("#password-result");
+
+generateBtn.addEventListener(
+  "click",
+  () => (passwordResult.innerHTML = " " + passwordGenerator())
+);
+
+// copyBtn.addEventListener("click", function () {
+//   /* Select the text field */
+//   randomPassword.select();
+//   randomPassword.setSelectionRange(0, 99999); /* For mobile devices */
+//
+//   /* Copy the text inside the text field */
+//   navigator.clipboard.writeText(randomPassword.value);
+//
+//   /* Alert the copied text */
+//   alert("Copied the text: " + randomPassword.value);
+// });
+
 // original unrandomized arrays
 const upperCase = [
   "A",
@@ -79,6 +106,7 @@ console.log(allCharacters);
 // The main function
 
 function passwordGenerator(passwordLength) {
+  passwordLength = passwordLengthInput.value;
   const regex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^&*])(?=.*\d).*$/;
   let randomPassword;
   let passwordArray = [];
@@ -90,12 +118,14 @@ function passwordGenerator(passwordLength) {
   if (randomPassword.match(/^(?=.*[a-zA-Z])(?=.*[!@#$%^&*])(?=.*\d).*$/))
     return randomPassword;
   else {
-    console.log(passwordLength);
+    // console.log(passwordLength);
     return passwordGenerator(passwordLength);
   }
 }
 
-console.log(passwordGenerator(8));
+// console.log(passwordGenerator());
+// console.log(passwordGenerator().length);
 // console.log(randomPassword);
 
 // Connecting to front-end
+// console.log(passwordLengthInput.value);
