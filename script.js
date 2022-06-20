@@ -68,17 +68,34 @@ console.log(lowerCaseRandomized);
 console.log(numbersRandomized);
 console.log(symbolsRandomized);
 
+const allCharacters = [
+  ...upperCaseRandomized,
+  ...lowerCaseRandomized,
+  ...numbersRandomized,
+  ...symbolsRandomized,
+];
+
+console.log(allCharacters);
 // The main function
-let randomPassword;
-let passwordArray = [];
-function passwordGenerator(passwordLength, upper, lower, numbers, symbols) {
-  for (var i = 0; i <= passwordLength; i++) {
-    let temp = numbersRandomized[Math.floor(Math.random() * 10)];
+
+function passwordGenerator(passwordLength) {
+  const regex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^&*])(?=.*\d).*$/;
+  let randomPassword;
+  let passwordArray = [];
+  for (let i = 0; i < passwordLength; i++) {
+    let temp = allCharacters[Math.floor(Math.random() * 70)];
     passwordArray.push(temp);
   }
-  return passwordArray;
-  // return temp;
+  randomPassword = passwordArray.join("");
+  if (randomPassword.match(/^(?=.*[a-zA-Z])(?=.*[!@#$%^&*])(?=.*\d).*$/))
+    return randomPassword;
+  else {
+    console.log(passwordLength);
+    return passwordGenerator(passwordLength);
+  }
 }
 
-console.log(passwordGenerator(12));
-console.log(numbersRandomized[Math.floor(Math.random() * 10)]);
+console.log(passwordGenerator(8));
+// console.log(randomPassword);
+
+// Connecting to front-end
